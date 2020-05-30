@@ -1,0 +1,2 @@
+cd examples
+cargo build
