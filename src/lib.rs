@@ -1995,7 +1995,7 @@ macro_rules! write_slice {
 }
 
 impl ByteOrder for BigEndian {
-    // 深拷贝读取两个字节并返回那两个字节的数据
+    // 深拷贝读取两个字节并返回那两个字节的数据,并且会清空旧的对应内存的数据
     #[inline]
     fn read_u16(buf: &[u8]) -> u16 {
         read_num_bytes!(u16, 2, buf, to_be)
