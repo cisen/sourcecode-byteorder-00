@@ -1923,7 +1923,7 @@ pub type NativeEndian = LittleEndian;
 /// [`BigEndian`]: enum.BigEndian.html
 #[cfg(target_endian = "big")]
 pub type NativeEndian = BigEndian;
-
+// read_num_bytes!(u16, 2, buf, to_be)
 macro_rules! read_num_bytes {
     ($ty:ty, $size:expr, $src:expr, $which:ident) => {{
         assert!($size == ::core::mem::size_of::<$ty>());
@@ -1995,6 +1995,7 @@ macro_rules! write_slice {
 }
 
 impl ByteOrder for BigEndian {
+    // 深拷贝读取两个字节并返回那两个字节的数据
     #[inline]
     fn read_u16(buf: &[u8]) -> u16 {
         read_num_bytes!(u16, 2, buf, to_be)

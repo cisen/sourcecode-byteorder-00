@@ -1,3 +1,7 @@
+# 总结
+## api 说明
+- `read_u16`深拷贝读取两个字节并返回那两个字节的数据
+
 byteorder
 =========
 This crate provides convenience methods for encoding and decoding
